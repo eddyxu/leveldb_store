@@ -34,14 +34,13 @@ fi
 # Checks for library functions.
 
 CXXFLAGS="-Wall -Wextra -static -pedantic -Wunused-value $CXXFLAGS"
-AM_CXXFLAGS="-I\$(top_srcdir)/lib/vobla -isystem \$(top_srcdir)/lib/gmock-1.7.0/include"
+AM_CXXFLAGS="-isystem \$(top_srcdir)/lib/gmock-1.7.0/include"
 AM_CXXFLAGS="$AM_CXXFLAGS -isystem \$(top_srcdir)/lib/gmock-1.7.0/gtest/include"
-AM_LDFLAGS="-L\$(top_srcdir)/lib/gmock-1.7.0/lib -L\$(top_srcdir)/lib/vobla/vobla"
+AM_LDFLAGS="-L\$(top_srcdir)/lib/gmock-1.7.0/lib"
 AM_LDFLAGS="$AM_LDFLAGS -L\$(top_srcdir)/lib/gmock-1.7.0/gtest/lib"
 AC_SUBST(CXXFLAGS)
 AC_SUBST(AM_LDFLAGS)
 AC_SUBST(AM_CXXFLAGS)
-AC_SUBST(LIBS, "$LIBS -lvobla")
 
 AC_CONFIG_FILES([Makefile
 				 store/Makefile])

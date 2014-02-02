@@ -10,11 +10,7 @@ TESTS = leveldb_store_test
 
 check_PROGRAMS = $(TESTS)
 
-LDADD = @top_srcdir@/lib/vobla/vobla/libvobla.la \
-	-lgtest_main -lgtest -lgmock
-
 leveldb_store_test_SOURCES = leveldb_store_test.cpp
 leveldb_store_test_LDADD = \
   libleveldb_store.a \
-  @top_srcdir@/lib/vobla/vobla/libvobla.la \
   -lgtest_main -lgtest -lgmock
