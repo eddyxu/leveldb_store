@@ -21,6 +21,10 @@ AC_LANG([C++])
 AC_CHECK_LIB([snappy], [snappy_compress], [], [AC_MSG_ERROR([libsnappy was not found.])])
 # use system leveldb
 AC_CHECK_LIB([leveldb], [leveldb_open], [], [AC_MSG_ERROR([libleveldb was not found.])], [-lsnappy -lpthread])
+AC_CHECK_LIB([glog], [openlog], [], [AC_MSG_ERROR(google-glog was not found.)])
+AX_BOOST_BASE([1.53])
+AX_BOOST_FILESYSTEM([1.53])
+AX_BOOST_SYSTEM([1.53])
 
 # Checks for header files.
 
