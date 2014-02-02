@@ -15,22 +15,14 @@
 #
 # Regenerate configure and Makefiles
 
-if [ -d .git ]; then
-	git submodule init
-	git submodule update
-	#cp contrib/pre-commit .git/hooks
-fi
-
 libtoolize
 autoheader
 aclocal -I m4 --install
 autoconf
 automake --foreign --add-missing --force-missing --copy
 
-cd lib/vobla
-./bootstrap && ./configure && make
-
-cd ../
+mkdir -p lib
+cd lib
 if [ ! -f gmock.zip ]; then
 	wget -O gmock.zip https://googlemock.googlecode.com/files/gmock-1.7.0.zip
 	unzip gmock.zip
