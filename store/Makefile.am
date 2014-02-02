@@ -3,7 +3,8 @@
 
 noinst_LIBRARIES = libleveldb_store.a
 libleveldb_store_a_SOURCES = \
-  leveldb_store.h leveldb_store.cpp
+  leveldb_store.h leveldb_store.cpp \
+  status.h status.cpp
 
 TESTS = leveldb_store_test
 

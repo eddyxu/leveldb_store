@@ -23,12 +23,10 @@
 #include <memory>
 #include <string>
 #include <utility>
-#include "vobla/status.h"
-
-using vobla::Status;
+#include "store/status.h"
 
 /**
- * \brief Wrap LevelDB as a Key-value store and provides STL-style iterators
+ * \brief Wrap LevelDB as a Key-value store and provides STL-style iterators.
  */
 namespace leveldb_store {
 

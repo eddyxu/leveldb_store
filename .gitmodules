@@ -1,5 +1,0 @@
-[submodule "lib/vobla"]
-	path = lib/vobla
-	url = https://github.com/vsfs/vobla.git
-	ignore = dirty
-	branch = master
