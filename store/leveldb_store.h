@@ -47,7 +47,7 @@ namespace leveldb_store {
  *  - remove(key)
  *  - search(prefix)
  */
-class LevelDBStore : public KeyValueStore {
+class LevelDBStore {
   typedef std::pair<string, string> KeyValuePair;
 
  public:

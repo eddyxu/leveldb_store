@@ -21,6 +21,7 @@ if [ -d .git ]; then
 	#cp contrib/pre-commit .git/hooks
 fi
 
+libtoolize
 autoheader
 aclocal -I m4 --install
 autoconf

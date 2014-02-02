@@ -30,6 +30,8 @@ using std::to_string;
 using std::vector;
 namespace fs = boost::filesystem;
 
+namespace leveldb_store {
+
 class LevelDBStoreTest : public ::testing::Test {
  protected:
   void SetUp() {
@@ -118,3 +120,5 @@ TEST_F(LevelDBStoreTest, TestSearchByPrefix) {
   }
   EXPECT_THAT(values, ElementsAre("abcdefg", "bcdeef"));
 }
+
+}  // namespace leveldb_store
