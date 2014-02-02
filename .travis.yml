@@ -2,7 +2,10 @@ language: cpp
 compiler:
   - gcc
 before_install:
+  # for g++ 4.8
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  # for google-glog-dev
+  - sudo add-apt-repository -y ppa:fcitx-team/nightly
   - sudo add-apt-repository -y ppa:apokluda/boost1.53
   - sudo apt-get update
   - sudo apt-get install -y g++-4.8 autoconf-archive libleveldb-dev libsnappy-dev libboost1.53-dev libgoogle-glog-dev
