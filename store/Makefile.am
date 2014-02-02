@@ -13,4 +13,5 @@ check_PROGRAMS = $(TESTS)
 leveldb_store_test_SOURCES = leveldb_store_test.cpp
 leveldb_store_test_LDADD = \
   libleveldb_store.a \
-  -lgtest_main -lgtest -lgmock
+  -lgtest_main -lgtest -lgmock \
+  $(BOOST_FILESYSTEM_LIB) $(BOOST_SYSTEM_LIB)
