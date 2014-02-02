@@ -25,16 +25,11 @@
 #include <utility>
 #include "vobla/status.h"
 
-using std::map;
-using std::string;
-using std::unique_ptr;
 using vobla::Status;
 
-namespace leveldb {
-class DB;
-class Status;
-}
-
+/**
+ * \brief Wrap LevelDB as a Key-value store and provides STL-style iterators
+ */
 namespace leveldb_store {
 
 /**
@@ -48,7 +43,7 @@ namespace leveldb_store {
  *  - search(prefix)
  */
 class LevelDBStore {
-  typedef std::pair<string, string> KeyValuePair;
+  typedef std::pair<std::string, std::string> KeyValuePair;
 
  public:
   /**
@@ -62,7 +57,8 @@ class LevelDBStore {
     explicit LevelDBStoreIterator(leveldb::Iterator* iter);
 
     /// Used in the test case.
-    explicit LevelDBStoreIterator(map<string, string>::iterator iter);
+    explicit LevelDBStoreIterator(
+        std::map<std::string, std::string>::iterator iter);
 
     /// ++i
     void increment();
@@ -83,18 +79,18 @@ class LevelDBStore {
     bool equal(LevelDBStoreIterator const& other) const;
 
     /// Returns the key.
-    string key() const;
+    std::string key() const;
 
     /// Returns the value.
-    string value() const;
+    std::string value() const;
 
     /// Returns true if the current position has 'prefix'
-    bool starts_with(const string& prefix) const;
+    bool starts_with(const std::string& prefix) const;
 
    private:
-    unique_ptr<leveldb::Iterator> iter_;
+    std::unique_ptr<leveldb::Iterator> iter_;
 
-    map<string, string>::iterator test_iter_;
+    std::map<std::string, std::string>::iterator test_iter_;
 
     /// A local copy of key and value on the current iterator position.
     value_type key_and_value_;
@@ -111,7 +107,7 @@ class LevelDBStore {
    * \param path the path of LevelDB.
    * \param bufsize_mb the size of LevelDB's buffer, in metabytes.
    */
-  explicit LevelDBStore(const string &path,
+  explicit LevelDBStore(const std::string& path,
                         int bufsize_mb = DEFAULT_BUFSIZE_MB);
 
   virtual ~LevelDBStore() {}
@@ -123,13 +119,13 @@ class LevelDBStore {
   virtual Status create();
 
   /// Gets a value buffer with the given key.
-  virtual Status get(const string& key, string* value);
+  virtual Status get(const std::string& key, std::string* value);
 
   /// Puts a key-value pair to the leveldb.
-  virtual Status put(const string& key, const string &value);
+  virtual Status put(const std::string& key, const std::string& value);
 
   /// Returns a key-value pair.
-  virtual Status remove(const string& key);
+  virtual Status remove(const std::string& key);
 
   /**
    * \brief Search the leveldb store by prefix.
@@ -148,7 +144,7 @@ class LevelDBStore {
    *   }
    * \endcode
    */
-  virtual iterator search(const string& prefix);
+  virtual iterator search(const std::string& prefix);
 
   /**
    * \brief Returns an iterator referring to the first element in the DB.
@@ -169,15 +165,15 @@ class LevelDBStore {
   /// Transforms leveldb::Status into vobla::Status.
   Status to_status(const leveldb::Status& l_status) const;
 
-  string db_path_;
+  std::string db_path_;
 
   /// LevelDB buffer size in MB.
   int bufsize_mb_;
 
   /// The instance of a LevelDB.
-  unique_ptr<leveldb::DB> db_;
+  std::unique_ptr<leveldb::DB> db_;
 };
 
-}
+}  // namespace leveldb_store
 
 #endif  // STORE_LEVELDB_STORE_H_
