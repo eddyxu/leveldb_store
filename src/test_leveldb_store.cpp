@@ -18,8 +18,8 @@
 #include <cerrno>
 #include <map>
 #include <string>
-#include "store/status.h"
-#include "store/test_leveldb_store.h"
+#include "status.h"
+#include "test_leveldb_store.h"
 
 using std::map;
 using std::string;

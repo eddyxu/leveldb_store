@@ -7,7 +7,7 @@ AM_INIT_AUTOMAKE([color-tests parallel-tests])
 AC_LIBTOOL_DLOPEN
 AC_PROG_LIBTOOL
 AC_CONFIG_MACRO_DIR([m4])
-AC_CONFIG_SRCDIR([store/leveldb_store.h])
+AC_CONFIG_SRCDIR([src/leveldb_store.h])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
@@ -47,5 +47,5 @@ AC_SUBST(AM_LDFLAGS)
 AC_SUBST(AM_CXXFLAGS)
 
 AC_CONFIG_FILES([Makefile
-				 store/Makefile])
+				 src/Makefile])
 AC_OUTPUT

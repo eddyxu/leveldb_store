@@ -23,7 +23,7 @@
 #include <memory>
 #include <string>
 #include <utility>
-#include "store/status.h"
+#include "status.h"
 
 /**
  * \brief Wrap LevelDB as a Key-value store and provides STL-style iterators.

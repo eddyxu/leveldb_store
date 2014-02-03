@@ -19,8 +19,8 @@
 
 #include <map>
 #include <string>
-#include "store/leveldb_store.h"
-#include "store/status.h"
+#include "leveldb_store.h"
+#include "status.h"
 
 namespace leveldb_store {
 

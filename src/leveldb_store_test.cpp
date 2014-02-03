@@ -22,7 +22,7 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
-#include "store/leveldb_store.h"
+#include "leveldb_store.h"
 
 using ::testing::ElementsAre;
 using std::string;

@@ -19,7 +19,7 @@
 
 #include <gmock/gmock.h>
 #include <string>
-#include "store/leveldb_store.h"
+#include "leveldb_store.h"
 
 namespace leveldb_store {
 

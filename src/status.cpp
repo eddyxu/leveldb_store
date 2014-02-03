@@ -17,7 +17,7 @@
 #include <cstring>
 #include <string>
 #include <utility>
-#include "store/status.h"
+#include "status.h"
 
 using std::string;
 
