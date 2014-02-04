@@ -103,7 +103,7 @@ bool LevelDBStore::LevelDBStoreIterator::starts_with(
   return iter_ && iter_->Valid() && iter_->key().starts_with(prefix);
 }
 
-LevelDBStore::LevelDBStore(const string &path, int bufsize)
+LevelDBStore::LevelDBStore(const string& path, int bufsize)
     : db_path_(path), bufsize_mb_(bufsize) {
 }
 
@@ -138,7 +138,7 @@ Status LevelDBStore::get(const string& key, string* value) {
   return to_status(s);
 }
 
-Status LevelDBStore::put(const string& key, const string &value) {
+Status LevelDBStore::put(const string& key, const string& value) {
   leveldb::Status s = db_->Put(leveldb::WriteOptions(), key, value);
   return to_status(s);
 }
